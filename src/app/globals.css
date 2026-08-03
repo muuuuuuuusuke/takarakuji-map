@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/*
+  宝くじ券そのものの設え。
+  既存の当せん売り場サイトは金ピカと赤黒で「当たる!」を煽るので、
+  逆に振る: 券面の淡い黄色の紙、証券の地紋（細い斜線）、番号は等幅。
+  データを冷静に読ませる面をつくる。
+
+  ダークモードは持たない。券は紙。
+*/
+:root {
+  --paper: #f7f2df;
+  --paper-raised: #fdfaef;
+  --ink: #2b2a24;
+  --ink-soft: #5d5a4c;
+  --ink-faint: #938f7c;
+  --line: #ddd6bd;
+  --shu: #c14330;
+  --midori: #46705a;
+  --kin: #a8862c;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-shu: var(--shu);
+  --color-midori: var(--midori);
+  --color-kin: var(--kin);
+  --font-sans: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html { color-scheme: light; }
+
+body {
+  background-color: var(--paper);
+  /* 証券の地紋: 細い斜線と紙の粒 */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' seed='6' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.045'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(52deg, rgba(70,112,90,0.055) 0 1px, transparent 1px 9px);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "palt";
+}
+
+.display {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+}
+
+/* 番号・件数は券面と同じ等幅で */
+.figure {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--ink-faint);
+}
+
+/* 券のミシン目。区切りに使う */
+.perforation {
+  border-top: 2px dashed var(--line);
+}
