@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RakutenItems } from "@/components/RakutenItems";
 import { META, topShops } from "@/lib/shops";
 
 export const metadata: Metadata = {
@@ -81,6 +82,12 @@ export default function Page() {
         <Link href="/">都道府県別の一覧</Link>も、
         あくまで「どこで出たか」の記録であって、「どこで買うべきか」の答えではありません。
       </p>
+
+      <RakutenItems
+        group="kinun_saifu"
+        heading="縁起を担ぐなら"
+        note="金運の縁起物として売られている財布です。当せん確率が変わるわけではありませんが、縁起担ぎとして買う人向けに載せています。"
+      />
 
       <p className="text-xs text-ink-faint">
         本記事は公表データと宝くじの仕組みにもとづく説明です。購入の判断はご自身で行ってください。
