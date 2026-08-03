@@ -70,7 +70,10 @@ export default function Page() {
         </li>
         <li>
           <strong>縁起として楽しむのは自由。</strong>
-          行列に並ぶ体験そのものが目的なら、それはそれで納得のいくお金の使い方です
+          行列に並ぶ体験そのものが目的なら、それはそれで納得のいくお金の使い方です。
+          買う日を一粒万倍日や天赦日に合わせる人も多く、その日取りは
+          <a href="https://kichijitsu.vercel.app/saifu">吉日カレンダー</a>
+          で確認できます
         </li>
       </ul>
       <p>
